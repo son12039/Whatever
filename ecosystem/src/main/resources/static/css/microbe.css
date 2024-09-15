@@ -1,0 +1,57 @@
+
+#line {
+	z-index: 5;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	width: 82%;
+	height: 82%;
+	position: fixed;
+	top: 9%;
+	left: 9%;
+}
+
+
+@keyframes fadeIn {from { opacity:0;}
+to {opacity: 1;}}
+
+
+/**/
+/*귀요미들*/
+#microbe {
+	top: 100px;
+	left: 300px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #9097e5;
+	position: absolute;
+	box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+	z-index: 10;
+	transform-origin: center;
+	transition: transform 0.1s linear;
+}
+
+#microbe::before, #microbe::after {
+	content: '';
+	position: absolute;
+	border-radius: 50%;
+}
+
+#microbe::before {
+	top: 50%; /* 기준점을 중앙으로 설정 */
+	left: 50%; /* 기준점을 중앙으로 설정 */
+	width: 60%; /* microbe의 너비의 60% */
+	height: 60%; /* microbe의 높이의 60% */
+	background: #7d85d5;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	transform: translate(-50%, -50%); /* 중심을 기준으로 이동 */
+}
+
+#microbe::after {
+	top: 50%; /* 기준점을 중앙으로 설정 */
+	left: 50%; /* 기준점을 중앙으로 설정 */
+	width: 60%; /* microbe의 너비의 80% */
+	height: 60%; /* microbe의 높이의 80% */
+	border: 1.5px solid #d5c4cb;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	transform: translate(-50%, -50%); /* 중심을 기준으로 이동 */
+}

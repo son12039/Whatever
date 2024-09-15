@@ -1,0 +1,9 @@
+.organicMatter {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #5bad93;
+	position: fixed;
+	box-shadow: 0 0 2px rgba(255, 255, 255, 1);
+	animation: fadeIn 1.5s forwards;
+}

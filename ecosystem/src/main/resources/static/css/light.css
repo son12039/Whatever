@@ -1,0 +1,18 @@
+#lights {
+	width: 100vw;
+	height: 100%;
+	position: relative;
+}
+
+.light {
+	width: 2px;
+	height: 2px;
+	border-radius: 50%;
+	background: #ffffff;
+	position: fixed;
+	box-shadow: 0 0 2px rgba(255, 255, 255, 1); /* 빛나는 효과 */
+	animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {from { opacity:0;}
+to {opacity: 1;}}
