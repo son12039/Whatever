@@ -19,7 +19,10 @@
 	<script src="../js/light.js"></script>
 	 <script src="../js/microbe.js"></script>
 	  <script src="../js/organicMatter.js"></script>
-	  <script src="../js/eat.js"></script> 
+	  
+	  
+	  <script src="../js/eat.js"></script>
+	  
 	 <script src="../js/update.js"></script>
 	
 </body>
