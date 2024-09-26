@@ -4,7 +4,7 @@ import sky from "./assets/sky.png";
 import ground from "./assets/platform.png";
 import star from "./assets/11zon_cropped.png";
 import bomb from "./assets/bomb.png";
-import dude from "./assets/dude.png";
+import dude from "./assets/Pokemon_s-Sprite.png";
 
 const MyPhaserGame = () => {
   useEffect(() => {
@@ -34,8 +34,8 @@ const MyPhaserGame = () => {
       this.load.image("star", star);
       this.load.image("bomb", bomb);
       this.load.spritesheet("dude", dude, {
-        frameWidth: 32,
-        frameHeight: 48,
+        frameWidth: 64,
+        frameHeight: 64,
       });
     }
 
@@ -57,29 +57,33 @@ const MyPhaserGame = () => {
       // @@@@@@@@@@@@
       player = this.physics.add.sprite(100, 450, "dude");
 
-      player.setBounce(0.2);
       player.setCollideWorldBounds(true);
 
       this.anims.create({
         key: "left",
-        frames: this.anims.generateFrameNumbers("dude", { start: 0, end: 3 }),
+        frames: this.anims.generateFrameNumbers("dude", { start: 4, end: 7 }),
         frameRate: 10,
         repeat: -1,
       });
 
       this.anims.create({
         key: "turn",
-        frames: [{ key: "dude", frame: 4 }],
+        frames: [{ key: "dude", frame: 0 }],
         frameRate: 20,
       });
 
       this.anims.create({
         key: "right",
-        frames: this.anims.generateFrameNumbers("dude", { start: 5, end: 8 }),
+        frames: this.anims.generateFrameNumbers("dude", { start: 8, end: 11 }),
         frameRate: 10,
         repeat: -1,
       });
-
+      this.anims.create({
+        key: "up",
+        frames: this.anims.generateFrameNumbers("dude", { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1,
+      });
       stars = this.physics.add.group({
         key: "star",
         repeat: 11,
@@ -146,6 +150,10 @@ const MyPhaserGame = () => {
         player.setVelocityX(160);
 
         player.anims.play("right", true);
+      } else if (cursors.up.isDown) {
+        player.setVelocityX(0);
+
+        player.anims.play("up", true);
       } else {
         player.setVelocityX(0);
 
