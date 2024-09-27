@@ -9,21 +9,19 @@ const io = new Server(server, {
   cors: "*", // 모든 출처에서의 연결 허용
 });
 
-const connectedUsers = new Map();
-
-io.on("connection", (socket) => {
-  console.log(socket.id, "connected");
-  socket.on("username", (nickname) => {
-    connectedUsers.set(socket.id, nickname);
-    io.emit("allUsers", Array.from(connectedUsers.values())); // 모든 클라이언트에 사용자 목록 전송
+const UserMap = new Map();
+let like = 0;
+io.on("connection", (sorket) => {
+  console.log(sorket.id + "들어왔슈");
+  sorket.emit("update", like);
+  sorket.on("clicked", () => {
+    like++;
+    io.emit("update", like);
   });
 
-  io.emit("allUsers", Array.from(connectedUsers));
-
-  socket.on("disconnect", () => {
-    console.log(socket.id, "disconnected");
-    connectedUsers.delete(socket.id);
-    io.emit("allUsers", Array.from(connectedUsers));
+  sorket.on("disconnect", () => {
+    UserMap.delete(sorket.id);
+    console.log(sorket.id + "나갔슈");
   });
 });
 

@@ -11,8 +11,8 @@ const server = http.createServer(app);
 const port = process.env.PORT || 8080;
 
 // http 서버를 웹소켓 서버로 업그레이드
-const io = new Server(server, {
-  cors: "*", // 모든 출처에서의 연결 허용
+const io = require("socket.io")(server, {
+  cors: "*",
 });
 
 const rooms = new Map();
