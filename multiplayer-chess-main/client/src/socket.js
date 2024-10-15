@@ -1,5 +1,5 @@
 import { io } from "socket.io-client"; // import connection function
 
-const socket = io('localhost:8081'); // initialize websocket connection
+const socket = io('https://chessgame-9o47.onrender.com'); // initialize websocket connection
 
 export default socket;
