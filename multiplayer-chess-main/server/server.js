@@ -8,7 +8,7 @@ const app = express(); // express 초기화
 const server = http.createServer(app);
 
 // 환경 변수에서 값을 가져오거나 null일 경우 8080으로 설정
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 
 // http 서버를 웹소켓 서버로 업그레이드
 const io = require("socket.io")(server, {
