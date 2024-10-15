@@ -14,7 +14,6 @@ export default function App() {
   const [orientation, setOrientation] = useState("");
   const [players, setPlayers] = useState([]);
 
-  // resets the states responsible for initializing a game
   const cleanup = useCallback(() => {
     setRoom("");
     setOrientation("");
@@ -22,9 +21,6 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    // const username = prompt("Username");
-    // setUsername(username);
-    // socket.emit("username", username);
 
     socket.on("opponentJoined", (roomData) => {
       console.log("roomData", roomData)
@@ -37,8 +33,8 @@ export default function App() {
       <CustomDialog
         open={!usernameSubmitted}
         handleClose={() => setUsernameSubmitted(true)}
-        title="Pick a username"
-        contentText="Please select a username"
+        title="닉네임 쌈뽕하게"
+        contentText="MZ스럽게"
         handleContinue={() => {
           if (!username) return;
           socket.emit("username", username);
