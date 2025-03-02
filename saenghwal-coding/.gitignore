@@ -1,0 +1,24 @@
+# OS 관련 파일
+.DS_Store
+Thumbs.db
+
+# 로그 파일
+*.log
+
+# 빌드 결과물
+/dist/
+/build/
+
+# Node.js 관련
+node_modules/
+npm-debug.log
+
+# Python 관련
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# IDE 관련
+.vscode/
+.idea/
